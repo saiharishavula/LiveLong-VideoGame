@@ -1,0 +1,25 @@
+Q1. What is?
+1. A
+2. D
+3. C
+4. S
+1
+Q2. Who is?
+1. q
+2. w
+3. e
+4. r
+2
+Q3. How is?
+1. a
+2. b
+3. d
+4. h
+3
+Q4. Where is?
+1. a
+2. b
+3. d
+4. h
+4
+$
