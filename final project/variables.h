@@ -53,7 +53,7 @@ using namespace std;
 	int frames = 0;
 	int gameFPS = 0;
 	int FPS=60;
-
+bool first_tym_for_bonus = true;
     bool done=false;
     int x=0;
     int y=285;
