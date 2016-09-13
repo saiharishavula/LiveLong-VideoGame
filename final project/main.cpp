@@ -25,8 +25,8 @@ void wayFunc(ALLEGRO_BITMAP *way1, ALLEGRO_BITMAP *way2,bool cleared[],int level
 int main()
 {
     srand (time(NULL));
-    bonus_question=rand()%1+1;
-    bonus_house=rand()%1+1;
+    bonus_question=rand()%4+1;
+    bonus_house=rand()%4+1;
     ALLEGRO_DISPLAY *display=NULL;
     ALLEGRO_EVENT_QUEUE *event_queue=NULL;
     ALLEGRO_TIMER *myTimer=NULL;
@@ -163,9 +163,6 @@ int main()
         random_query_house4[i]=true;
         random_query_house5[i]=true;
     }
-
-    //cout<<random_query<<endl;
-
     while(!done)
     {
         ALLEGRO_EVENT ev;
@@ -694,6 +691,7 @@ int main()
             {
                 if(ev.keyboard.keycode==ALLEGRO_KEY_C)
                 {
+                    level = 1;
                     initialisation(level);
 
                 }
@@ -1282,7 +1280,7 @@ int main()
                 {
                     al_draw_bitmap(result_display,0,0,0);
                     al_draw_textf(font18, al_map_rgb(225, 255, 255),372,16, 0, "%i",gold);
-                    if(Highlight(x,y,level)==bonus_house&&bonus_question==current_question)
+                  if(Highlight(x,y,level)==bonus_house&&bonus_question==current_question)
                   {
                       bonus=true;
                       al_draw_bitmap(bonus_pic,259,85,0);
@@ -1456,23 +1454,23 @@ int main()
                 if(corAns)
                 {
 
-                    if(bonus)
+                    if(bonus && first_tym_for_bonus)
                     {
                         bonus=false;
+                        first_tym_for_bonus=false;
                         gold+=100;
                     }
                     else
                         gold+=50;
-
-
                 }
 
                 else
                 {
 
-                     if(bonus)
+                     if(bonus && first_tym_for_bonus)
                     {
                         bonus=false;
+                        first_tym_for_bonus = false;
                         gold+=75;
                     }
                     else
@@ -1714,6 +1712,7 @@ int Highlight(int x,int y,int level)
 void initialisation(int level)
 {
      //cout<<"h";
+   bool first_tym_for_bonus = true;
     if(level==1)
     {
         gameState=START;
@@ -1726,7 +1725,7 @@ void initialisation(int level)
         gtime=0;
         gtime1=0;
         notMoving=true;
-        gold=500;
+        gold=120;
         for(int i=0;i<4;i++)
     {
         random_query_house1[i]=true;
@@ -1757,7 +1756,7 @@ void initialisation(int level)
         }
         for(int i=0;i<=5;i++)
         {
-            cleared[i]=true;
+            cleared[i]=false;
         }
     }
     else
@@ -1800,7 +1799,7 @@ void initialisation(int level)
         }
         for(int i=0;i<=5;i++)
         {
-            cleared[i]=true;
+            cleared[i]=false;
         }
 
     }
