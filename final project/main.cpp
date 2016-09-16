@@ -378,7 +378,7 @@ int main()
                         cout<<x<<" "<<y<<endl;
                     }
                     else
-                    if(level==2&&x>564 && y+iHeight<355 && y+iHeight>325)
+                    if(level==2 && x>555 && y+iHeight<365 && y+iHeight>315)
                     {
                         cout<<"changing level2"<<endl;
                         level=3;
@@ -1799,6 +1799,7 @@ void initialisation(int level)
         }
         for(int i=0;i<=5;i++)
         {
+
             cleared[i]=false;
         }
 
@@ -1913,6 +1914,14 @@ bool collision(int x,int y,int level)
     else
     if(level==2)
     {
+        cout<<box<<endl;
+        //cout<<cleared[5]<<endl;
+         if(x+iWidth>=540 && x<=660 && y+iHeight>320 && y+iHeight<365 && cleared[5])
+        {
+           // if(!wayColl())
+                box=7;
+                return false;
+        }
         if(y+iHeight>=535&&y+iHeight<=600&&x>=150&&x+iWidth<=255)
         {
             box=1;
@@ -1923,7 +1932,7 @@ bool collision(int x,int y,int level)
             box=2;
             return false;
         }
-        if(y+iHeight>=325&&y+iHeight<=365&&x>=0&&x<=495)
+        if(y+iHeight>=325 && y+iHeight<=365 && x>=0 && x<=495)
         {
             box=3;
             return false;
@@ -1938,17 +1947,12 @@ bool collision(int x,int y,int level)
             box=5;
             return false;
         }
-        if(y+iHeight>=310&&y+iHeight<=370&&x>=545&&x+iWidth<=650)
+       /* if(y+iHeight>=310 && y+iHeight<=370 && x>=545 && x+iWidth<=650)
         {
             box=6;
             return false;
-        }
-        if(x+iWidth>=545 && x<=650 && y+iHeight<355 && y+iHeight>325)
-        {
-           // if(!wayColl())
-                box=7;
-                return false;
-        }
+        }*/
+
     }
     else
     if(level==3)
@@ -2150,30 +2154,12 @@ void reset(int box,int level)
             if(x+iWidth>750)
                 x=750-iWidth;
         }
-        if(box==6)
-        {
-             //if(y+iHeight>=310&&y+iHeight<=370&&x>=545&&x+iWidth<=650)
-            if(y+iHeight<370)
-                y=370-iHeight;
-            if(y+iHeight>575)
-                y=575-iHeight;
-            if(x<650)
-                x=650;
-            if(x+iWidth>545)
-                x=545-iWidth;
-
-        }
          if(box==7)
         {
-           // if(y+iHeight>=310&&y+iHeight<=370&&x>=545&&x+iWidth<=650)
-            if(y+iHeight<360)
-                y=360-iHeight;
-            if(y+iHeight>340)
-                y=325-iHeight;
-            if(x<650)
-                x=650;
-            if(x+iWidth>545)
-                x=545-iWidth;
+           if(y+iHeight<=330)
+            y = 330-iHeight;
+           if(y+iHeight>=345)
+            y = 345-iHeight;
         }
     }
     else
