@@ -32,7 +32,7 @@ int main()
     ALLEGRO_TIMER *myTimer=NULL;
    ALLEGRO_BITMAP *backGround1=NULL;
     ALLEGRO_BITMAP *backGround2=NULL;
-    ALLEGRO_BITMAP *backGround3=NULL;
+    ALLEGRO_BITMAP *backGround3=NULL; 
     ALLEGRO_BITMAP *proffl=NULL;
     ALLEGRO_BITMAP *proffu=NULL;
     ALLEGRO_BITMAP *proffd=NULL;
